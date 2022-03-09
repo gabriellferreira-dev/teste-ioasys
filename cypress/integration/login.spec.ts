@@ -39,6 +39,34 @@ describe('Login Page', () => {
       .invoke('attr', 'type')
       .should('eq', 'password');
   });
+
+  it('should show a loading when logging in', () => {
+    cy.get('[data-testid="email-input"]').type('testeapple@ioasys.com.br');
+    cy.get('[data-testid="password-input"]').type('12341234');
+    cy.get('[data-testid="submit-login-button"]').click();
+
+    cy.get('[data-testid="loading-screen"]');
+  });
+
+  it('should an error message appears when entering some data wrong', () => {
+    cy.get('[data-testid="email-input"]').type('emailerrado@ioasys.com.br');
+    cy.get('[data-testid="password-input"]').type('12341234');
+    cy.get('[data-testid="submit-login-button"]').click();
+
+    cy.get('*[class="error-message"]');
+    cy.get('*[class="error-message"]').should(
+      'have.text',
+      'Credenciais informadas são inválidas, tente novamente.',
+    );
+  });
+
+  it('should successful login occur when entering the correct data', () => {
+    cy.get('[data-testid="email-input"]').type('testeapple@ioasys.com.br');
+    cy.get('[data-testid="password-input"]').type('12341234');
+    cy.get('[data-testid="submit-login-button"]').click();
+
+    cy.location('pathname').should('eq', '/');
+  });
 });
 
 export {};

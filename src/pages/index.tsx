@@ -1,28 +1,62 @@
-import type { NextPage } from 'next';
-import { FormLogin } from '../components/FormLogin';
+import type {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  NextPage,
+} from 'next';
+import { useSession, getSession } from 'next-auth/react';
 import Layout from '../components/Layoult';
 import { Container } from './styles';
 
-const Login: NextPage = () => (
-  <Layout title="Ioasys Empresas - Login">
-    <Container>
-      <picture>
-        <source
-          srcSet="logo-home.png"
-          media="(max-width: 600px)"
-          data-testid="ioasys-logo"
-        />
-        <img src="logo-home@2x.png" alt="logo" data-testid="ioasys-logo" />
-      </picture>
-      <h2 className="Text-Style-11" data-testid="welcome-text">
-        BEM-VINDO AO EMPRESAS
-      </h2>
-      <p data-testid="subtext">
-        Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.
-      </p>
-      <FormLogin />
-    </Container>
-  </Layout>
-);
+import { useRouter } from 'next/router';
 
-export default Login;
+const Index: NextPage = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  if (status === 'loading' && typeof window !== 'undefined') return null;
+
+  if (status !== 'loading' && !session) {
+    router.push(process.env.NEXT_PUBLIC_LOGIN_URL as string);
+  }
+
+  if (status === 'loading' || !session) return null;
+
+  return (
+    <Layout title="Ioasys Empresas">
+      <Container>
+        <picture>
+          <source
+            srcSet="logo-home.png"
+            media="(max-width: 600px)"
+            data-testid="ioasys-logo"
+          />
+          <img src="logo-home@2x.png" alt="logo" data-testid="ioasys-logo" />
+        </picture>
+      </Container>
+    </Layout>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      props: {},
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
+
+export default Index;

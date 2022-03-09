@@ -9,6 +9,19 @@ import { ServerStyleSheet } from 'styled-components';
 import { GlobalStyle } from '../styles/globalStyle';
 
 export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang="pt-br">
+        <Head></Head>
+        <body>
+          <GlobalStyle />
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
@@ -33,17 +46,5 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
-  }
-
-  render() {
-    return (
-      <Html lang="pt-br">
-        <Head></Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
   }
 }
