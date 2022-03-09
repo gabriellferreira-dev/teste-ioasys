@@ -8,6 +8,7 @@ import Layout from '../components/Layoult';
 import { Container } from './styles';
 
 import { useRouter } from 'next/router';
+import { NavBar } from '../components/NavBar';
 
 const Index: NextPage = () => {
   const { data: session, status } = useSession();
@@ -24,14 +25,7 @@ const Index: NextPage = () => {
   return (
     <Layout title="Ioasys Empresas">
       <Container>
-        <picture>
-          <source
-            srcSet="logo-home.png"
-            media="(max-width: 600px)"
-            data-testid="ioasys-logo"
-          />
-          <img src="logo-home@2x.png" alt="logo" data-testid="ioasys-logo" />
-        </picture>
+        <NavBar />
       </Container>
     </Layout>
   );
