@@ -24,15 +24,17 @@ const ApiClient = () => {
   });
 
   client.interceptors.request.use(async (config: AxiosRequestConfig) => {
-    const session: CustomSession = await getSession();
+    const session = await getSession();
 
     if (session) {
+      const customSession = session as CustomSession;
       if (!config.headers) config.headers = {};
 
-      if (session.accessHeaders) {
-        config.headers.uid = session.accessHeaders.uid;
-        config.headers.client = session.accessHeaders.client;
-        config.headers['access-token'] = session.accessHeaders['access-token'];
+      if (customSession.accessHeaders) {
+        config.headers.uid = customSession.accessHeaders.uid;
+        config.headers.client = customSession.accessHeaders.client;
+        config.headers['access-token'] =
+          customSession.accessHeaders['access-token'];
       }
     }
 
