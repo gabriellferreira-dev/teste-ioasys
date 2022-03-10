@@ -44,9 +44,9 @@ Projeto com objetivo de testar alguns conhecimentos.
 
 ## :sparkles: Funcionalidades ##
 
-:heavy_check_mark: Efetuar login com usuário existente 1;\
-:heavy_check_mark: Buscar empresas em uma api existente 2;\
-:heavy_check_mark: Acessar detalhes de uma empresa 3;
+:heavy_check_mark: Efetuar login com usuário existente;\
+:heavy_check_mark: Buscar empresas em uma api existente;\
+:heavy_check_mark: Acessar detalhes de uma empresa;
 
 ## :rocket: Tecnologias ##
 
