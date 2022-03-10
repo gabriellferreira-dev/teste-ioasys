@@ -9,11 +9,21 @@ export const Container = styled.header<HeaderProps>`
   background: linear-gradient(173deg, #ee4c77 0%, #0d0430 300%);
   min-height: 151px;
   position: relative;
-  padding: 10px;
+  padding: 34px 42px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   z-index: 10;
+  color: ${({ theme }) => theme.colors['white-two']};
+  font-size: 34px;
+  font-family: Roboto;
+
+  ${({ isSearching }) =>
+    isSearching &&
+    css`
+      align-items: flex-end;
+    `}
 
   ${({ currentScroll }) =>
+    currentScroll &&
     currentScroll >= 110 &&
     document.body.scrollHeight > 1170 &&
     css`
@@ -36,7 +46,7 @@ export const Container = styled.header<HeaderProps>`
       }
 
       @media (max-width: 768px) {
-        width: 90%;
+        width: 100%;
       }
     `}
 `;

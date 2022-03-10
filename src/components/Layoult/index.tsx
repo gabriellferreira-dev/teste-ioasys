@@ -6,10 +6,7 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-export default function Layout({
-  title = 'Ioasys Empresas',
-  children,
-}: LayoutProps) {
+function Layout({ title = 'Ioasys Empresas', children }: LayoutProps) {
   return (
     <>
       <Head>
@@ -19,3 +16,5 @@ export default function Layout({
     </>
   );
 }
+
+export default Layout;

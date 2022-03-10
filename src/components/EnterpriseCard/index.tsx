@@ -1,27 +1,19 @@
 import { FC } from 'react';
-import { Container } from './styles';
+import { StyledEnterpriseCard } from './styles';
 
-type CardProps = {
-  name: string;
-  type: string;
-  local: string;
-  photoUrl: string;
+type EnterpriseCardProps = {
+  imagePath: string;
+  description: string;
 };
 
-export const EnterpriseCard: FC<CardProps> = ({
-  name,
-  type,
-  local,
-  photoUrl,
+export const EnterpriseCard: FC<EnterpriseCardProps> = ({
+  imagePath,
+  description,
 }) => {
   return (
-    <Container data-testid="enterprise-card">
-      <img src={`${process.env.NEXT_PUBLIC_BASE_URL}${photoUrl}`} alt="" />
-      <div>
-        <h3>{name}</h3>
-        <p>{type}</p>
-        <span>{local}</span>
-      </div>
-    </Container>
+    <StyledEnterpriseCard>
+      <img src={imagePath} alt="" />
+      <p>{description}</p>
+    </StyledEnterpriseCard>
   );
 };

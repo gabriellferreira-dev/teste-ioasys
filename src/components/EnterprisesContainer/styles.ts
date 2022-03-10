@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: ${({ theme }) => theme.colors['beige-two']};
-  position: relative;
-  flex-grow: 1;
-  padding: 40px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  width: 100%;
 
   & > p {
     font-family: Roboto;

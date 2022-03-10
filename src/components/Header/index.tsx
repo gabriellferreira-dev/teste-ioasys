@@ -1,19 +1,12 @@
-import { FC, useContext } from 'react';
-import { EnterprisesContext } from '../../context/EnterprisesProvider';
-import { SearchBar } from '../SearchBar';
+import { FC, ReactNode } from 'react';
 import { Container } from './styles';
 
 export type HeaderProps = {
-  currentScroll: number;
+  currentScroll?: number;
+  children: ReactNode;
+  isSearching?: boolean;
 };
 
-export const Header: FC<HeaderProps> = (props) => {
-  const { isSearching } = useContext(EnterprisesContext);
-
-  return (
-    <Container {...props}>
-      {!isSearching && <img src="logo-nav.png" alt="logo ioasys" />}
-      <SearchBar />
-    </Container>
-  );
+export const Header: FC<HeaderProps> = ({ children, ...props }) => {
+  return <Container {...props}>{children}</Container>;
 };

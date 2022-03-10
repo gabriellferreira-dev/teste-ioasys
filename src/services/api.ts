@@ -56,3 +56,23 @@ export const getEnterprises = async (): Promise<
     return { errors: ['Erro interno'] };
   }
 };
+
+export const getEnterprise = async (
+  id: string,
+): Promise<IEnterprise | { errors: string[] }> => {
+  try {
+    const response = await ApiClient.get<{ enterprise: IEnterprise }>(
+      `${apiRoute}${enterprisesEndPoint}/${id}`,
+    );
+
+    return response.data.enterprise;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const errorResponse = error as AxiosError<{ errors: string[] }>;
+      if (errorResponse.response) {
+        return errorResponse.response.data;
+      }
+    }
+    return { errors: ['Erro interno'] };
+  }
+};

@@ -10,10 +10,13 @@ import { Container } from './styles';
 import { useRouter } from 'next/router';
 import { Header } from '../components/Header';
 import { EnterprisesContainer } from '../components/EnterprisesContainer';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { EnterprisesContext } from '../context/EnterprisesProvider';
+import { SearchBar } from '../components/SearchBar';
 
 const Index: NextPage = () => {
   const { data: session, status } = useSession();
+  const { isSearching } = useContext(EnterprisesContext);
 
   const router = useRouter();
 
@@ -36,7 +39,10 @@ const Index: NextPage = () => {
   return (
     <Layout title="Ioasys Empresas">
       <Container>
-        <Header currentScroll={currentScroll} />
+        <Header currentScroll={currentScroll} isSearching={isSearching}>
+          {!isSearching && <img src="logo-nav.png" alt="logo ioasys" />}
+          <SearchBar />
+        </Header>
         <EnterprisesContainer />
       </Container>
     </Layout>
