@@ -40,7 +40,7 @@
 
 ## :dart: Sobre ##
 
-Sobre o seu projeto
+Projeto com objetivo de testar alguns conhecimentos.
 
 ## :sparkles: Funcionalidades ##
 
