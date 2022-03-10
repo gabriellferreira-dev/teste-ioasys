@@ -17,6 +17,8 @@ export const Container = styled.div<Props>`
     isSearching &&
     css`
       border-bottom: 1px solid #fff;
+      position: relative;
+      align-self: flex-end;
       padding: 10px;
       max-width: 95%;
       bottom: 20px;

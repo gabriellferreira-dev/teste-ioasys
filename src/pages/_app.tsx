@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider, DefaultOptions } from 'react-query';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../styles/globalStyle';
 import { theme } from '../styles/theme';
+import { EnterprisesProvider } from '../context/EnterprisesProvider';
 
 const STALE_TIME = 5 * 60 * 1000; // 5 SECONDS
 
@@ -30,10 +31,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </Head>
       <SessionProvider session={session}>
         <ThemeProvider theme={theme}>
-          <QueryClientProvider client={queryClient}>
-            <GlobalStyle />
-            <Component {...pageProps} />
-          </QueryClientProvider>
+          <EnterprisesProvider>
+            <QueryClientProvider client={queryClient}>
+              <GlobalStyle />
+              <Component {...pageProps} />
+            </QueryClientProvider>
+          </EnterprisesProvider>
         </ThemeProvider>
       </SessionProvider>
     </>

@@ -50,3 +50,8 @@ export type SignResponse = {
   investor?: Investor;
   errors?: string[];
 };
+
+export type GetEnterprises = {
+  enterprises: IEnterprise[];
+  errors: string[] | null;
+};

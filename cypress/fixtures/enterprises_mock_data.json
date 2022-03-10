@@ -1,0 +1,104 @@
+{
+  "enterprises": [
+    {
+      "id": 1,
+      "email_enterprise": null,
+      "facebook": null,
+      "twitter": null,
+      "linkedin": null,
+      "phone": null,
+      "own_enterprise": false,
+      "enterprise_name": "Fluoretiq Limited",
+      "photo": "/uploads/enterprise/photo/1/240.jpeg",
+      "description": "FluoretiQ is a Bristol based medtech start-up developing diagnostic technology to enable bacteria identification within the average consultation window, so that patients can get the right anti-biotics from the start.  ",
+      "city": "Bristol",
+      "country": "UK",
+      "value": 0,
+      "share_price": 5000.0,
+      "enterprise_type": {
+        "id": 3,
+        "enterprise_type_name": "Health"
+      }
+    },
+    {
+      "id": 2,
+      "email_enterprise": null,
+      "facebook": null,
+      "twitter": null,
+      "linkedin": null,
+      "phone": null,
+      "own_enterprise": false,
+      "enterprise_name": "Little Bee Community",
+      "photo": "/uploads/enterprise/photo/2/240.png",
+      "description": "Service and Product Design, Responsible Business",
+      "city": "London",
+      "country": "UK",
+      "value": 0,
+      "share_price": 5000.0,
+      "enterprise_type": {
+        "id": 12,
+        "enterprise_type_name": "Service"
+      }
+    },
+    {
+      "id": 3,
+      "email_enterprise": null,
+      "facebook": null,
+      "twitter": null,
+      "linkedin": null,
+      "phone": null,
+      "own_enterprise": false,
+      "enterprise_name": "HSQ Productions",
+      "photo": "/uploads/enterprise/photo/3/240.jpeg",
+      "description": "Personality personalised 'Done in a Day' video production ",
+      "city": "Manchester",
+      "country": "UK",
+      "value": 0,
+      "share_price": 5000.0,
+      "enterprise_type": {
+        "id": 12,
+        "enterprise_type_name": "Service"
+      }
+    },
+    {
+      "id": 4,
+      "email_enterprise": null,
+      "facebook": null,
+      "twitter": null,
+      "linkedin": null,
+      "phone": null,
+      "own_enterprise": false,
+      "enterprise_name": "VendorLink",
+      "photo": "/uploads/enterprise/photo/4/240.jpeg",
+      "description": "We are reinventing the sales channel through our bespoke platform, myvendorlink, which aims to bring the best niche, new and emerging technology directly to IT resellers - and vice versa!",
+      "city": "Alton",
+      "country": "UK",
+      "value": 0,
+      "share_price": 5000.0,
+      "enterprise_type": {
+        "id": 7,
+        "enterprise_type_name": "IT"
+      }
+    },
+    {
+      "id": 5,
+      "email_enterprise": null,
+      "facebook": null,
+      "twitter": null,
+      "linkedin": null,
+      "phone": null,
+      "own_enterprise": false,
+      "enterprise_name": "TOAD.ai",
+      "photo": "/uploads/enterprise/photo/5/240.jpeg",
+      "description": "TOAD.ai is an online tool for businesses and ad agencies looking for a quick way to plan and buy outdoor advertising campaigns. Rather than contacting multiple media owners or going to slow and expensive media planners, TOAD generates proposals in seconds, saving time and money.\n\nAdvertising signage is a powerful medium that dominates our built environment yet it lacks a consolidated trading platform. By combining the UK’s advertising signage onto a single platform and layering it with audience data, behavioural insights and planning automation, TOAD.ai lets you book campaigns optimized to reach target audiences.\n\nTHINK BIGGER!\n",
+      "city": "London",
+      "country": "UK",
+      "value": 0,
+      "share_price": 5000.0,
+      "enterprise_type": {
+        "id": 21,
+        "enterprise_type_name": "Marketplace"
+      }
+    }
+  ]
+}

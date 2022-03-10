@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { Session } from 'next-auth';
 import { getSession } from 'next-auth/react';
 
-const baseURL = 'https://empresas.ioasys.com.br/api/v1/';
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL || '';
 const headers = {
   'Content-type': 'application/json',
 };

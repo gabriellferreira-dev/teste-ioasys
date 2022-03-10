@@ -8,11 +8,24 @@ import Layout from '../components/Layoult';
 import { Container } from './styles';
 
 import { useRouter } from 'next/router';
-import { NavBar } from '../components/NavBar';
+import { Header } from '../components/Header';
+import { EnterprisesContainer } from '../components/EnterprisesContainer';
+import { useEffect, useState } from 'react';
 
 const Index: NextPage = () => {
   const { data: session, status } = useSession();
+
   const router = useRouter();
+
+  const [currentScroll, setCurrentScroll] = useState<number>(0);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', () => {
+        setCurrentScroll(window.scrollY);
+      });
+    }
+  }, []);
 
   if (status === 'loading' && typeof window !== 'undefined') return null;
 
@@ -20,12 +33,11 @@ const Index: NextPage = () => {
     router.push(process.env.NEXT_PUBLIC_LOGIN_URL as string);
   }
 
-  if (status === 'loading' || !session) return null;
-
   return (
     <Layout title="Ioasys Empresas">
       <Container>
-        <NavBar />
+        <Header currentScroll={currentScroll} />
+        <EnterprisesContainer />
       </Container>
     </Layout>
   );
