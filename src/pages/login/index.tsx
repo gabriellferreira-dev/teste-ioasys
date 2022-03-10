@@ -4,7 +4,7 @@ import type {
   NextPage,
 } from 'next';
 
-import { getSession } from 'next-auth/react';
+import { getSession, SignInResponse } from 'next-auth/react';
 import { FormLogin } from '../../components/FormLogin';
 import Layout from '../../components/Layoult';
 import { Container } from './styles';
@@ -33,9 +33,12 @@ const Login: NextPage = () => {
 
     setIsLoading(false);
 
-    if (!response?.ok) {
-      setError('Credenciais informadas são inválidas, tente novamente.');
-      return;
+    if (response) {
+      const data = response as SignInResponse;
+      if (!data.ok) {
+        setError('Credenciais informadas são inválidas, tente novamente.');
+        return;
+      }
     }
 
     const redirect = router.query?.redirect || '/';
